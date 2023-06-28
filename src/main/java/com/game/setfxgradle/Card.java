@@ -4,9 +4,11 @@ import com.game.setfxgradle.enums.*;
 import javafx.scene.image.Image;
 
 import java.io.InputStream;
+import java.util.Objects;
 
 public class Card {
-//    private final Image cardImage;
+    //    private final Image cardImage;
+    public String path;
     public boolean picked = false;
     public int id;
     public int x_pos;
@@ -16,27 +18,37 @@ public class Card {
     public final SetCount count;
     public final SetShape shape;
     public final SetFill fill;
+
     public SetStyle style;
-    public Card(int colour, int shape, int count, int fill, int x_grid, int y_grid) {
 
-        this.color = SetColor.values()[colour];
-        this.shape = SetShape.values()[shape];
-        this.fill = SetFill.values()[fill];
-        this.count = SetCount.values()[count];
+    public Card(int colour, int shape, int count, int fill, int x_pos, int y_pos) {
+
+        this.color = SetColor.values()[colour-1];
+        this.shape = SetShape.values()[shape-1];
+        this.fill = SetFill.values()[fill-1];
+        this.count = SetCount.values()[count-1];
+        this.x_pos = x_pos;
+        this.y_pos = y_pos;
+
     }
 
-    private static Image getImage(SetColor col, SetShape sh, SetCount co, SetFill fill, SetStyle style){
-        //        InputStream cardStream = getClass().getResourceAsStream("/images/"+Integer.toString(colour)+"_"+Integer.toString(shape)+"_"+Integer.toString(count)+"_"+Integer.toString(fill)+".png");
-        //        assert cardStream != null;
-        //        this.cardImage = new Image(cardStream);
-        return null;
+//    private static Image getImage(SetColor col, SetShape sh, SetCount co, SetFill fill, SetStyle style) {
+//        String path = "/images/" + style.toString()+ "_" + Integer.toString(SetColor.valueOf(col.toString()).ordinal()) + "_" + Integer.toString(SetShape.valueOf(sh.toString()).ordinal()) + "_" + Integer.toString(SetCount.valueOf(co.toString()).ordinal()) + "_" + Integer.toString(SetFill.valueOf(fill.toString()).ordinal()) + ".png";
+//        return new Image(Objects.requireNonNull(Card.class.getResourceAsStream(path)));
+//    }
+//
+//    public Image getCard() {
+//        return Card.getImage(this.color, this.shape, this.count, this.fill, this.style);
+//    }
+
+    public void getPath(){
+        SetColor col = this.color;
+        SetShape sh = this.shape;
+        SetCount co = this.count;
+        SetFill fill = this.fill;
+        this.style = SetStyle.HORROR;
+        System.out.println("/images/" + style.toString()+ "_" + Integer.toString(SetColor.valueOf(col.toString()).ordinal()) + "_" + Integer.toString(SetShape.valueOf(sh.toString()).ordinal()) + "_" + Integer.toString(SetFill.valueOf(fill.toString()).ordinal()) + "_" + Integer.toString(SetCount.valueOf(co.toString()).ordinal()) + ".png");
     }
-    public Image getCard() {
-        return Card.getImage(this.color, this.shape, this.count, this.fill, this.style);
-    }
-
-
-
 
 
 }
