@@ -49,7 +49,7 @@ public class Card {
         SetCount co = this.count;
         SetFill fill = this.fill;
         this.style = SetStyle.STEAMPUNK;
-        String path = "/images/styles/" + style.toString().toLowerCase() + "/" + style.toString() + "_"+ col.toString() + "_" + sh.toString() + "_" + fill.toString() + "_" + co.toString() + ".png";
+        String path = "D:\\Android\\SetFX\\src\\main\\resources\\images\\styles\\" + style.toString().toLowerCase() + "\\" + style.toString() + "_"+ col.toString() + "_" + sh.toString() + "_" + fill.toString() + "_" + co.toString() + ".png";
         System.out.println(new File(path).exists());
         System.out.println(path);
     }
