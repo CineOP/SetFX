@@ -35,6 +35,11 @@ public class MainClass extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+//        launch();
+        Deck deck = new Deck("D:\\Android\\SetFX\\src\\main\\java\\com\\game\\setfxgradle\\test.json");
+        for (int i = 0; i < deck.getCards().size(); i++) {
+            Card card = new Card(deck.getColor(i), deck.getShape(i), deck.getCount(i), deck.getFill(i), 1, 1);
+            card.getPath();
+        }
     }
 }

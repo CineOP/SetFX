@@ -3,8 +3,10 @@ package com.game.setfxgradle;
 import com.game.setfxgradle.enums.*;
 import javafx.scene.image.Image;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.Objects;
+
 
 public class Card {
     //    private final Image cardImage;
@@ -46,8 +48,10 @@ public class Card {
         SetShape sh = this.shape;
         SetCount co = this.count;
         SetFill fill = this.fill;
-        this.style = SetStyle.HORROR;
-        System.out.println("/images/" + style.toString()+ "_" + Integer.toString(SetColor.valueOf(col.toString()).ordinal()) + "_" + Integer.toString(SetShape.valueOf(sh.toString()).ordinal()) + "_" + Integer.toString(SetFill.valueOf(fill.toString()).ordinal()) + "_" + Integer.toString(SetCount.valueOf(co.toString()).ordinal()) + ".png");
+        this.style = SetStyle.STEAMPUNK;
+        String path = "/images/styles/" + style.toString().toLowerCase() + "/" + style.toString() + "_"+ col.toString() + "_" + sh.toString() + "_" + fill.toString() + "_" + co.toString() + ".png";
+        System.out.println(new File(path).exists());
+        System.out.println(path);
     }
 
 
